@@ -278,7 +278,9 @@ Before launching evaluation, update the indoor evaluation script and task files
 with your checkpoint and data paths:
 
 - `/spatial_mosaic/thinking-in-space/spatial_mosaic/indoor/eval_llavanext.sh`
-  Set `pretrained` to your checkpoint path.
+  Set `pretrained` to your checkpoint path. To evaluate the open-source
+  LLaVA-NeXT-Video model, set `pretrained` to
+  `lmms-lab/LLaVA-NeXT-Video-7B-Qwen2`.
 - `/spatial_mosaic/thinking-in-space/lmms_eval/tasks/spatial_mosaic/indoor/indoor.yaml`
   Set the VQA data path.
 - `/spatial_mosaic/thinking-in-space/lmms_eval/tasks/spatial_mosaic/indoor/utils.py`

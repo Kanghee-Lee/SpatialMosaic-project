@@ -9,7 +9,7 @@ accelerate launch \
     --num_processes=1 \
     -m lmms_eval \
     --model spatialmosaic \
-    --model_args pretrained=path_to_model,model_base=lmms-lab/LLaVA-NeXT-Video-7B-Qwen2,conv_template=qwen_1_5,max_frames_num=32 \
+    --model_args pretrained=path_to_model,conv_template=qwen_1_5,max_frames_num=32 \
     --tasks ${THINKING_IN_SPACE_DIR}/lmms_eval/tasks/spatial_mosaic/outdoor \
     --batch_size 1 \
     --log_samples \
