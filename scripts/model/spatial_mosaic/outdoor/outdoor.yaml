@@ -1,0 +1,4 @@
+datasets:
+    # Todo change path
+  # scannetpp
+  - json_path: "path to vqa"

@@ -1,0 +1,3 @@
+datasets:
+  # scannetpp
+  - json_path: "path to vqa"
