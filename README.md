@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://kanghee-lee.github.io/spatialmosaic/"><img src="https://img.shields.io/badge/Project-Page-1f6feb" alt="Project Page"></a>
   <a href="https://arxiv.org/abs/2512.23365"><img src="https://img.shields.io/badge/arXiv-2512.23365-b31b1b.svg" alt="arXiv"></a>
-  <a href="https://huggingface.co/datasets/anonymoussubmmision/spatial_mosaic_vqa"><img src="https://img.shields.io/badge/Hugging%20Face-Dataset-yellow" alt="Hugging Face Dataset"></a>
+  <a href="https://huggingface.co/datasets/jmkey/spatial_mosaic_vqa"><img src="https://img.shields.io/badge/Hugging%20Face-Dataset-yellow" alt="Hugging Face Dataset"></a>
 </p>
 
 <p align="center">
@@ -178,7 +178,7 @@ spatial_mosaic_dataset/
 ```
 
 The Spatial Mosaic VQA annotations are hosted on Hugging Face:
-https://huggingface.co/datasets/anonymoussubmmision/spatial_mosaic_vqa
+https://huggingface.co/datasets/jmkey/spatial_mosaic_vqa
 
 This archive contains the VQA JSON annotations only; follow the license and
 usage terms listed on the Hugging Face dataset card. Install or update the
@@ -190,7 +190,7 @@ cd spatial_mosaic
 python -m pip install -U huggingface_hub
 
 mkdir -p spatial_mosaic_dataset
-hf download anonymoussubmmision/spatial_mosaic_vqa \
+hf download jmkey/spatial_mosaic_vqa \
   spatial_mosaic_vqa.tar.gz SHA256SUMS \
   --repo-type dataset \
   --local-dir spatial_mosaic_dataset
