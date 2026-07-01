@@ -285,3 +285,18 @@ Then run evaluation from the indoor evaluation directory:
 cd thinking-in-space/spatial_mosaic/indoor
 bash eval_llavanext.sh
 ```
+
+## 📜 Citation
+
+If you find **SpatialMosaic** useful for your research, please consider citing:
+
+```bibtex
+@misc{lee2026spatialmosaicmultiviewvlmdataset,
+      title={SpatialMosaic: A Multiview VLM Dataset for Partial Visibility}, 
+      author={Kanghee Lee and Injae Lee and Minseok Kwak and Jungi Hong and Kwonyoung Ryu and Jaesik Park},
+      year={2026},
+      eprint={2512.23365},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2512.23365}, 
+}
