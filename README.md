@@ -288,7 +288,7 @@ bash eval_llavanext.sh
 
 ## 📜 Citation
 
-If you find **SpatialMosaic** useful for your research, please consider citing:
+If you find **SpatialMosaic** useful for your research, please consider citing our paper:
 
 ```bibtex
 @misc{lee2026spatialmosaicmultiviewvlmdataset,
