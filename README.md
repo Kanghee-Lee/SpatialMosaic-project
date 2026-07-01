@@ -26,20 +26,24 @@ This repository contains training and evaluation code for Spatial Mosaic.
 
 Use `/spatial_mosaic` below as the repository root.
 
-## Contents
+## 📚 Contents
 
-- [SpatialMosaic](#spatialmosaic)
-  - [VQA Summary](#vqa-summary)
-  - [Task Types](#task-types)
-  - [Data Format and Examples](#data-format-and-examples)
-  - [Download](#download)
-  - [Train](#train)
-- [SpatialMosaic-Bench](#spatialmosaic-bench)
-  - [Eval](#eval)
+- [🧩 SpatialMosaic](#spatialmosaic)
+  - [📊 VQA Summary](#vqa-summary)
+  - [🎯 Task Types](#task-types)
+  - [🧾 Data Format and Examples](#data-format-and-examples)
+  - [📥 Download](#download)
+  - [🛠️ Train With Your Data](#train)
+- [🧪 SpatialMosaic-Bench](#spatialmosaic-bench)
+  - [📈 Eval](#eval)
 
-## SpatialMosaic
+<a id="spatialmosaic"></a>
 
-### VQA Summary
+## 🧩 SpatialMosaic
+
+<a id="vqa-summary"></a>
+
+### 📊 VQA Summary
 
 <p align="center">
   <img src="assets/dataset_summary.png" alt="Spatial Mosaic dataset summary" width="95%">
@@ -52,7 +56,9 @@ observations. The dataset covers indoor and outdoor scenes and asks questions
 about object counting, object presence and localization, best-view selection,
 object-object spatial relations, and view-specific position reasoning.
 
-### Task Types
+<a id="task-types"></a>
+
+### 🎯 Task Types
 
 <p align="center">
   <img src="assets/task_types.png" alt="Spatial Mosaic task type examples" width="95%">
@@ -64,42 +70,12 @@ representative reasoning patterns such as cross-view object counting and
 best-view selection, object presence and localization, object-object spatial
 relations, and view-specific position comparison.
 
+<a id="data-format-and-examples"></a>
 
+### 🧾 Data Format and Examples
 
-### Data Format and Examples
-
-The train and test splits use different JSON layouts. Training samples are
-stored in a conversation format for VLM instruction tuning, while test samples
-are flattened into question, option, answer, and evaluation metadata fields for
-benchmarking.
-
-Each training QA sample consists of:
-
-```json
-{
-  "id": "97c9a5ce-f377-4029-9e14-d54181cd5e2e",
-  "data_source": "scannetpp",
-  "scene_name": "35f2120068",
-  "question_type": "obj_spatial_occ_fb",
-  "frames": [
-    "frame_009770",
-    "frame_007960",
-    "frame_008450",
-    "frame_003460",
-    "frame_008240"
-  ],
-  "conversations": [
-    {
-      "from": "human",
-      "value": "<image>\nThese are frames of a video.\n\nIn frame_009770, where does the heater appear in this view relative to the cardboard box(217,122)?\n\nOptions:\nA. Lower than the cardboard box.\nB. Farther from the camera than the cardboard box.\nC. To the left of the cardboard box.\nD. Closer to the camera than the cardboard box.\nAnswer with the option's letter from the given choices directly."
-    },
-    {
-      "from": "gpt",
-      "value": "D"
-    }
-  ]
-}
-```
+The test split is flattened into question, option, answer, and evaluation
+metadata fields for benchmarking.
 
 Each test QA sample consists of:
 
@@ -142,7 +118,9 @@ images should be placed under
 metadata fields can vary by source; for example, indoor samples may include
 `ground_truth`, `bbox_2d`, and `bbox_2d_diag` when available.
 
-### Download
+<a id="download"></a>
+
+### 📥 Download
 
 We provide two scene sources for Spatial Mosaic:
 
@@ -173,8 +151,8 @@ spatial_mosaic_dataset/
 │   └── {scene_id}/
 │       └── images/
 └── spatial_mosaic_vqa/
-    ├── train/
-    └── test/
+    ├── merged_indoor_test.json
+    └── merged_outdoor_test.json
 ```
 
 The Spatial Mosaic VQA annotations are hosted on Hugging Face:
@@ -200,13 +178,15 @@ sha256sum -c SHA256SUMS
 tar -xzf spatial_mosaic_vqa.tar.gz
 ```
 
-After extraction, the VQA JSON files should be available under
-`spatial_mosaic_dataset/spatial_mosaic_vqa/train/` and
-`spatial_mosaic_dataset/spatial_mosaic_vqa/test/`.
+After extraction, the VQA JSON files should be available as
+`spatial_mosaic_dataset/spatial_mosaic_vqa/merged_indoor_test.json` and
+`spatial_mosaic_dataset/spatial_mosaic_vqa/merged_outdoor_test.json`.
 
-### Train
+<a id="train"></a>
 
-#### Environmental Setup
+### 🛠️ Train With Your Data
+
+#### ⚙️ Environmental Setup
 
 Create and activate the training environment:
 
@@ -234,7 +214,7 @@ PYTHONPATH=$(pwd):$PYTHONPATH
 cd ..
 ```
 
-#### How To Train
+#### 🚀 How To Train
 
 Training scripts are provided for both indoor and outdoor scenes, with standard
 and VGGT variants. The example below shows indoor LLaVA-NeXT training.
@@ -254,11 +234,15 @@ Then run training from the spatial_mosaic root:
 CUDA_VISIBLE_DEVICES=2,3 NUM_GPUS_PER_NODE=2 bash scripts/model/spatial_mosaic/indoor/train_llavanext.sh
 ```
 
-## SpatialMosaic-Bench
+<a id="spatialmosaic-bench"></a>
 
-### Eval
+## 🧪 SpatialMosaic-Bench
 
-#### Environmental Setup
+<a id="eval"></a>
+
+### 📈 Eval
+
+#### ⚙️ Environmental Setup
 
 Create the evaluation environment:
 
@@ -268,7 +252,7 @@ conda env create -f thinking-in-space/spatial_mosaic/environment.yaml
 conda activate vsibench
 ```
 
-#### How To Eval
+#### 🧪 How To Eval
 
 Evaluation scripts are provided for both indoor and outdoor scenes, with
 standard and VGGT variants. The example below shows indoor LLaVA-NeXT
@@ -281,6 +265,11 @@ with your checkpoint and data paths:
   Set `pretrained` to your checkpoint path. To evaluate the open-source
   LLaVA-NeXT-Video model, set `pretrained` to
   `lmms-lab/LLaVA-NeXT-Video-7B-Qwen2`.
+
+  **Note:** When evaluating a Hugging Face model directly, omit `model_base` from
+  `--model_args`. When evaluating a locally trained checkpoint by setting
+  `pretrained` to a local path, include `model_base` with the base model used
+  during training, such as `lmms-lab/LLaVA-NeXT-Video-7B-Qwen2`.
 - `/spatial_mosaic/thinking-in-space/lmms_eval/tasks/spatial_mosaic/indoor/indoor.yaml`
   Set the VQA data path.
 - `/spatial_mosaic/thinking-in-space/lmms_eval/tasks/spatial_mosaic/indoor/utils.py`
