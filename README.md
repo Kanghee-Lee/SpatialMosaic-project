@@ -65,7 +65,7 @@ object-object spatial relations, and view-specific position reasoning.
 </p>
 
 Spatial Mosaic includes multi-view VQA tasks designed for partial visibility,
-occlusion, and low-overlap observations. The task examples below cover
+occlusion, and low-overlap observations. The task examples above cover
 representative reasoning patterns such as cross-view object counting and
 best-view selection, object presence and localization, object-object spatial
 relations, and view-specific position comparison.
@@ -122,7 +122,7 @@ metadata fields can vary by source; for example, indoor samples may include
 
 ### 📥 Download
 
-We provide two scene sources for Spatial Mosaic:
+We utilize two source datasets for Spatial Mosaic:
 
 | Dataset | Description | Example Path |
 | --- | --- | --- |
@@ -158,10 +158,14 @@ spatial_mosaic_dataset/
 The Spatial Mosaic VQA annotations are hosted on Hugging Face:
 https://huggingface.co/datasets/jmkey/spatial_mosaic_vqa
 
-This archive contains the VQA JSON annotations only; follow the license and
-usage terms listed on the Hugging Face dataset card. Install or update the
-Hugging Face CLI, then download and extract the VQA archive under the dataset
-root:
+**Note:** The current public release provides only a tiny version of the
+Spatial Mosaic VQA annotations for preview and lightweight experimentation. It
+does not include the full Spatial Mosaic dataset.
+
+This archive contains the tiny-version VQA JSON annotations only; follow the
+license and usage terms listed on the Hugging Face dataset card. Install or
+update the Hugging Face CLI, then download and extract the VQA archive under
+the dataset root:
 
 ```bash
 cd spatial_mosaic
